@@ -8,7 +8,7 @@ pipeline{
         stage('Git Checkout'){
             steps{
                 
-               git branch:'master' ,url: 'https://github.com/Bhim-Kumar/MavenBuild.git'
+               git branch:'master' ,url: 'https://github.com/manohar-devops/MavenBuild.git'
             }
         }
         stage('Maven Build'){
@@ -30,7 +30,7 @@ pipeline{
         stage('Docker Build'){
             steps{
                 sh 'docker build -t java-app:latest .'
-                sh 'docker tag java-app bhimkumar/java-app:latest'
+                sh 'docker tag java-app manohardevops18/java-app:latest'
             }
         }
         
@@ -55,7 +55,7 @@ pipeline{
         
         stage('Pull the Image from Dockerhub '){
             steps{
-                sh 'docker pull bhimkumar/java-app:latest'
+                sh 'docker pull manohardevops18/java-app:latest'
             }
         }
         stage('Docker Run'){
